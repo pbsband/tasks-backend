@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('Deploy Backend') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://10.30.1.19:8080/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
+                deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://10.30.1.19:8080/')], contextPath: 'tasks-backend', war: '/var/jenkins_home/workspace/deployback/target/tasks-backend.war'
             }
         }
         stage ('API Test') {
