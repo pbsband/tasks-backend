@@ -36,7 +36,7 @@ pipeline {
         }
         stage ('API Test') {
             steps {
-                dir('api-test') {
+                dir('apitest') {
                     git credentialsId: 'github_login', url: 'https://github.com/pbsband/tasks-api'
                     sh 'mvn test'
                 }
