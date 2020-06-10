@@ -31,12 +31,12 @@ pipeline {
         }
         stage ('Deploy Backend') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://10.30.1.19:8080/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
+                deploy adapters: [tomcat8(credentialsId: 'Tomcat8', path: '', url: 'http://10.30.1.19:8080/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
             }
         }
         stage ('API Test') {
             steps {
-                dir('apitest') {
+                dir('api-test') {
                     git credentialsId: 'github_login', url: 'https://github.com/pbsband/tasks-api'
                     sh 'mvn test'
                 }
