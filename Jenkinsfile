@@ -61,8 +61,8 @@ pipeline {
         }
         stage('Deploy Prod') {
             steps {
-                sh DOCKER_HOST="ssh://root@10.30.1.19" 'docker-compose build'
-                sh DOCKER_HOST="ssh://root@10.30.1.19" 'docker-compose up -d'
+                sh 'docker-compose build'
+                sh 'docker-compose up -d'
             }
         }
         stage ('Health Check') {
